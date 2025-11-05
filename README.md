@@ -1,7 +1,6 @@
 
 
 ````markdown
-<div align="center">
 
 # 💬 SupaChat+
 
@@ -16,7 +15,6 @@
 It allows users to register, log in, start conversations, and exchange messages instantly —  
 delivering a sleek, fast, and fully responsive chat experience with real-time updates.
 
-</div>
 
 ---
 
