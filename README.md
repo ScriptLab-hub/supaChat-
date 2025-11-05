@@ -201,7 +201,7 @@ CREATE TABLE public.messages (
    npm run dev
    ```
 
-   Access the app at `http://localhost:5173`
+   Access the app at `https://supachatsmit.netlify.app/`
 
 5. **Deploy**
    Push to GitHub → Connect to Netlify/Vercel → Add environment variables in dashboard → Deploy 🎉
