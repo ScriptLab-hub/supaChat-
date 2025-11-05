@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌈 Base Theme */
+@layer base {
+  body {
+    @apply font-inter bg-gray-50 dark:bg-zinc-900 text-gray-800 dark:text-gray-100 antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* 🌿 Reusable Styles */
+@layer components {
+  .card {
+    @apply bg-white dark:bg-zinc-800 shadow-lg rounded-xl p-4 transition-all;
+  }
+
+  .btn-primary {
+    @apply bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg px-4 py-2 shadow-sm transition-all;
+  }
+
+  .btn-secondary {
+    @apply bg-teal-500 hover:bg-teal-600 text-white font-medium rounded-lg px-4 py-2 shadow-sm transition-all;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white dark:bg-zinc-800 text-gray-800 dark:text-gray-100 transition-all;
+  }
+
+  .link {
+    @apply text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 transition-colors;
+  }
+}
+
+/* ✨ Scrollbar Styling */
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 8px;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: #4b5563;
+  }
+}
+
+/* 💬 Chat Window */
+.chat-container {
+  @apply flex flex-col h-full bg-gray-50 dark:bg-zinc-900 transition-colors;
+}
+
+.chat-message {
+  @apply px-4 py-2 rounded-lg max-w-[75%] shadow-sm mb-2 break-words;
+}
+
+.chat-message.sent {
+  @apply bg-emerald-500 text-white self-end;
+}
+
+.chat-message.received {
+  @apply bg-white dark:bg-zinc-800 text-gray-800 dark:text-gray-100 self-start;
+}
+
+/* 🔆 Smooth Fade Transitions */
+.fade-in {
+  @apply transition-opacity duration-300 ease-in opacity-100;
+}
+
+.fade-out {
+  @apply transition-opacity duration-300 ease-out opacity-0;
+}
+/* ---------------------------
+   Deluxe Theme Pack additions
+   --------------------------- */
+
+/* Dark-mode transition for smooth toggle */
+:root {
+  --transition-fast: 180ms;
+}
+.theme-transition {
+  transition: background-color var(--transition-fast) ease, color var(--transition-fast) ease;
+}
+
+/* Message bubble animations (we use framer-motion but this is fallback) */
+.bubble-enter {
+  transform-origin: left;
+  opacity: 0;
+  transform: translateY(6px) scale(0.98);
+}
+.bubble-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+
+/* Typing indicator (three dots) */
+.typing-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 16px;
+}
+.dark .typing-dots {
+  background: rgba(255,255,255,0.03);
+}
+.typing-dots .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #94f9c5; /* emerald-ish */
+  opacity: 0.3;
+  animation: typingDots 1s infinite linear;
+}
+.typing-dots .dot:nth-child(2) { animation-delay: 0.12s; }
+.typing-dots .dot:nth-child(3) { animation-delay: 0.24s; }
+
+@keyframes typingDots {
+  0% { transform: translateY(0); opacity: 0.3; }
+  50% { transform: translateY(-5px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.3; }
+}
+
+/* Online badge pulse */
+.online-badge {
+  position: relative;
+  display: inline-block;
+}
+.online-badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  transform: translate(6px, -6px);
+  width: 10px;
+  height: 10px;
+  opacity: 0.85;
+  background: #34d399; /* emerald-400 */
+  box-shadow: 0 0 0 6px rgba(52,211,153,0.12);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { transform: translate(6px,-6px) scale(1); opacity: 0.9; }
+  70% { transform: translate(6px,-6px) scale(1.45); opacity: 0; }
+  100% { transform: translate(6px,-6px) scale(1); opacity: 0; }
+}
+
+/* Modal entrance standardization (framer motion will animate too) */
+.modal-content {
+  @apply rounded-2xl bg-white dark:bg-zinc-800 p-4 shadow-lg;
+}
+
+/* Optional small helper for bubble colors */
+.msg-incoming { @apply bg-white dark:bg-zinc-800 text-gray-800 dark:text-gray-100; }
+.msg-outgoing { @apply bg-emerald-500 text-white; }

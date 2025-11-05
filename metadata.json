@@ -1,0 +1,5 @@
+{
+  "name": "SupaChat+",
+  "description": "A WhatsApp-style chat application UI built with React, TypeScript, and Tailwind CSS. This is Phase 1, focusing on a responsive, UI-only implementation with mock data.",
+  "requestFramePermissions": []
+}
