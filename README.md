@@ -177,7 +177,7 @@ CREATE TABLE public.messages (
 1. **Clone Repo**
 
    ```bash
-   git clone https://github.com/<your-username>/supachat-plus.git
+   git clone https://github.com/ScriptLab-hub/supaChat-.git
    cd supachat+
    ```
 
